@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+<title>瀑布流</title>
+<style type="text/css">
+   /* html{height:1000px;}*/
+    *{padding: 0;margin:0;}
+    #main{
+        position: relative;
+    }
+    .pin{
+        padding: 15px 0 0 15px;
+        float:left;
+    }
+    .box{
+        padding: 10px;
+        border:1px solid #ccc;
+        box-shadow: 0 0 6px #ccc;
+        border-radius: 5px;
+    }
+    .box img{
+        width:162px;
+        height:auto;
+    }
+</style>
+</head>
+<body>
+<div id="main" style="width:1200px;margin:0 auto">
+    <div class="pin">
+        <div class="box">
+            <img src="./images/1.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/2.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/3.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/4.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/5.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/6.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/7.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/8.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/9.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/10.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/11.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/12.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/13.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/14.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/15.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/16.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/17.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/18.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/19.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/20.jpg"/>
+        </div>
+    </div>
+    <div class="pin">
+        <div class="box">
+            <img src="./images/21.jpg"/>
+        </div>
+    </div>
+</div>
+</body>
+<!-- <script type="text/javascript" src="js/waterfall.js"/></script> -->
+<script type="text/javascript">
+window.onload = function() {
+        waterFall();        
+        }
+
+        // 排列函数
+        function waterFall() {
+            var oBoxs = document.getElementsByClassName("box");
+            console.log(oBoxs.length);
+            var hArr = [];
+            for (var i = 0; i < oBoxs.length; i++) {
+                if (i < 6) {
+                     hArr.push(oBoxs[i].parentNode.offsetHeight);
+                } else {
+                    var  minH= Math.min.apply(null,hArr);
+                    var index = hArr.indexOf(minH);
+                    console.log(minH);
+                    oBoxs[i].parentNode.style.position = "absolute";
+                    oBoxs[i].parentNode.style.top = minH + "px";
+                    oBoxs[i].parentNode.style.left = oBoxs[0].parentNode.offsetWidth * (index) + "px";
+                    //最小值代替掉
+
+                    var proHeight = oBoxs[i].parentNode.offsetHeight; 
+                    hArr[index] += proHeight;
+
+                    // console.log(oBoxs[i].parentNode.offsetWidth);
+                    // console.log(oBoxs[i].parentNode.clientWidth);
+                }
+        }
+
+        // 判断是否需要加载数据块的条件函数
+        
+        function checkScrollSlide() {
+            var cont = document.getElementsByClassName("box");
+            var nowObject = cont[cont.length - 1].parentNode;
+            var lastBoxH = nowObject.offsetTop + Math.floor(nowObject.offsetHeight/2);
+            //console.log(nowHeight);
+            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.body.clientHeight || document.documentElement.clientHeight;
+            //document.documentElement.clientHeight || document.documentElement.offsetHeight;
+            // debugger;
+            var state = (lastBoxH < scrollTop + height) ? true:false;
+            return state;
+        }
+
+        // 滚动条事件
+
+        window.onscroll = function() {
+            var dataInt = {
+                data:[{src:"0.jpg"},{src:"1.jpg"},{src:"3.jpg"},{src:"4.jpg"},{src:"5.jpg"},{src:"6.jpg"},{src:"7.jpg"},{src:"8.jpg"}]
+            };
+            if (checkScrollSlide() === true) {
+                var oParent = document.getElementById("main");
+                for (var i = 0; i < dataInt.data.length; i++) {
+                    var oBox = document.createElement("div");
+                    oBox.className = "pin";
+                    // console.log(oBox)
+                    oParent.appendChild(oBox);
+                    var oPic = document.createElement("div");
+                    oPic.className = "box";
+                    oBox.appendChild(oPic);
+                    var oImg = document.createElement("img");
+                    oImg.src = "images/" + dataInt.data[i].src;
+                    oPic.appendChild(oImg);
+                    waterFall();  
+                }
+            }
+            
+        };
+    };
+</script>
+</html>
