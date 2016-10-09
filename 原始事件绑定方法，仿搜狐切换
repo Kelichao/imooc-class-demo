@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> 
+  <head>
+    <title>新页面</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+  <!-- <link rel="stylesheet" type="text/css" href="./sohu.css">-->
+
+<style type="text/css">
+body{
+font-size:12px;
+}
+.div2,.div3,.div4,.div5{
+float:left;
+}
+.div1{
+width:132px;
+height:156px;
+
+}
+.div2{
+width:25px;
+height:156px;
+
+}
+.div2 ul{
+
+width:20px;
+margin:0px;
+padding:0px;
+
+}
+.div2 ul li {
+list-style-type:none;
+margin-left:0px;
+padding:0px;
+background:silver;
+margin-top:2px;
+height:48px;
+line-height:25px;
+text-align:center;
+}
+.div3 ul,.div4 ul,.div5 ul{
+height:156px;
+width:98px;
+padding:0px;
+margin:0px;
+margin-left:3px;
+margin-top:3px;
+line-height: 156px;
+}
+.div3 ul li,.div4 ul li,.div5 ul li{
+ list-style-type:none;
+margin-left:0px;
+padding:0px;
+background:silver;
+line-height: 21px;
+}
+
+.div4,.div5{
+display:none;
+}
+</style>
+<script language="javascript" type="text/javascript">
+
+function change1(value,obj){
+	switch(value){
+	case "zs":
+		obj.style.backgroundColor="#FFC12D";
+		div3.style.display="block";
+		div4.style.display="none";
+		div5.style.display="none";
+		break;
+	case "rz":
+		div4.style.display="block";
+		div3.style.display="none";
+		div5.style.display="none";
+		obj.style.backgroundColor="#FFC12D";
+		break;
+	case "gg":
+		div5.style.display="block";
+		div4.style.display="none";
+		div3.style.display="none";
+		obj.style.backgroundColor="#FFC12D";
+		break;
+	}
+	
+}
+    function change2(obj){
+    	obj.style.backgroundColor="silver";
+    	
+    	
+    }
+</script>
+  </head>
+  <body>
+<div class="div1">
+<div class="div2">
+<ul>
+<li onMouseOver="change1('zs',this)" onMouseOut="change2(this)">招生</li>
+<li onMouseOver="change1('rz',this)" onMouseOut="change2(this)">热招</li>
+<li onMouseOver="change1('gg',this)" onMouseOut="change2(this)">广告</li>
+</ul>
+</div>
+<div id="div3" class="div3">
+<ul>
+<li>招生招生招生招生</li>
+<li>招生招生招生招生</li>
+<li>招生招生招生招生</li>
+<li>招生招生招生招生</li>
+<li>招生招生招生招生</li>
+<li>招生招生招生招生</li>
+<li>招生招生招生招生</li>
+</ul>
+</div>
+
+<div id="div4" class="div4">
+<ul>
+<li>热招热招热招热招</li>
+<li>热招热招热招热招</li>
+<li>热招热招热招热招</li>
+<li>热招热招热招热招</li>
+<li>热招热招热招热招</li>
+<li>热招热招热招热招</li>
+<li>热招热招热招热招</li>
+</ul>
+</div>
+
+<div id="div5" class="div5">
+<ul>
+<li>广告广告广告广告</li>
+<li>广告广告广告广告</li>
+<li>广告广告广告广告</li>
+<li>广告广告广告广告</li>
+<li>广告广告广告广告</li>
+<li>广告广告广告广告</li>
+<li>广告广告广告广告</li>
+</ul>
+</div>
+</div>
+  </body>
+</html>
