@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页定位导航特效</title>
+	<style type="text/css">
+     *{
+     	margin:0px;
+     	padding:0px;
+     	list-style-type: none;
+     	font-size:12pt;
+     	line-height: 1.7;
+
+     }
+      h1{
+     	font-weight: bold;
+     	font-size:25px;
+     	color: #0088bb;
+     }
+     h2{
+     	color:#0088bb;
+     	font-size:20px;
+     	border-bottom: 3px solid #0088bb;
+     }
+     #content{
+     	      width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+     }
+    
+     .item{
+        
+     	margin-right:10px;
+     	 margin:0 auto;
+     	width:800px;
+     	border:2px dotted #0088bb ;
+     	padding: 20px;
+
+     	margin-bottom: 20px;
+     	position:relative;
+     }
+     .item li{
+        display: inline;
+     } 
+     .item img{
+     	width: 230px;
+        height: 230px;
+        border: none;
+        margin:10px;
+     }
+     #menu{
+     	position: fixed;
+     	top:100px;
+     	left:50%;
+     	margin-left: 445px;
+     	 width: 80px; 
+
+
+     }
+     #menu a{
+     	line-height: 50px;
+     	font-size:15pt;
+     	text-decoration: none;
+     	text-align: center;
+     	font-weight: bold;
+     	color:black;
+     	font-size:;
+     	display: block;
+     	margin-bottom:3px;
+     }
+     #menu a:hover,#menu li a.current{
+     	background: #0088bb;
+     	color:white;
+     	
+     }
+      * html, * html body {
+            background-image: url(about:blank);
+            background-attachment: fixed;
+        }
+
+        * html #menu {
+            position: absolute;
+            bottom: auto;
+            top: expression(100+((e=document.documentElement.scrollTop)?e:document.body.scrollTop)+'px');
+        }
+	</style>
+</head>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		// window.alert();
+		//滚动触发的函数
+		$(window).scroll(function(){
+			// 原生的话 Safari 只支持body这里做兼容
+			console.log(document.documentElement.scrollTop || document.body.scrollTop);
+			//滚动条到顶端的距离
+			var top=$(window).scrollTop();
+            //栏目div对象集合
+            var $eachitem=$("#content .item");
+            //滚动条现在所在位置的item id
+            var currentId="";
+              //window.alert($eachitem.length);
+            $.each($eachitem,function(){
+            	var m=$(this);
+               if(top+300>m.offset().top){
+               	currentId="#"+m.attr("id"); 
+                   //console.log(currentId);
+                }
+               	else{
+               		return false;
+               	}
+                          }
+               // console.log($(this).offset().top);
+               //设定导航条的显示
+              
+                   );
+             var $currentLink=$("#menu li a[href="+currentId+"]");
+             var $ycurrentLink = $("#menu .current");
+            //window.alert($currentLink.attr("href")+currentId);
+            if(currentId&&currentId!=$ycurrentLink.attr("href")){
+            	 $ycurrentLink.attr("class","");
+            	 $currentLink.attr("class","current");
+            	 //window.alert($currentLink.attr("href"));
+            	 // console.log($currentLink.length);
+               	//  var $ncurrentLink=$("#menu a:not(.current)");
+               	// $currentLink.attr("class","current");
+            } 
+           
+                         // currentLink.attr("href")
+                // var $currentLink=$("#menu li a[href="+currentId+"]");
+                                           // [href=" + currentId + "]
+            //     if(currentId=="#item2"){
+            //     window.alert("ID="+currentId+"一样"+"#item2");
+            // }
+             
+               	
+			// var lon=$("#item2").offset().top;
+			//window.alert(top);
+			// // $.each(".item",function(){
+
+			// })
+		});
+	})
+</script>
+<body>
+<div id="menu">
+<ul>
+	<li ><a href="#item1" class="current" value="22">1F男装</a></li>
+	<li ><a href="#item2">2F女装</a></li>
+	<li ><a href="#item3">3F美妆</a></li>
+	<li ><a href="#item4">4F数码</a></li>
+	<li ><a href="#item5">5F母婴</a></li>
+
+</ul>
+</div>
+<div id="content">
+   <h1>地狗购物网</h1>
+<div id="item1" class="item">
+ 
+        <h2>1F 男装</h2>
+<ul>
+	<li><a href=""><img src="1F.jpg"></a></li>
+	<li><a href=""><img src="1F.jpg"></a></li>
+	<li><a href=""><img src="1F.jpg"></a></li>
+	<li><a href=""><img src="1F.jpg"></a></li>
+	<li><a href=""><img src="1F.jpg"></a></li>
+	<li><a href=""><img src="1F.jpg"></a></li>
+	<li><a href=""><img src="1F.jpg"></a></li>
+	<li><a href=""><img src="1F.jpg"></a></li>
+	<li><a href=""><img src="1F.jpg"></a></li>
+</ul>
+</div>
+
+<div id="item2" class="item">
+ <h2>2F 女装</h2>
+<ul>
+	<li><a href=""><img src="2F.jpg"></a></li>
+	<li><a href=""><img src="2F.jpg"></a></li>
+	<li><a href=""><img src="2F.jpg"></a></li>
+	<li><a href=""><img src="2F.jpg"></a></li>
+	<li><a href=""><img src="2F.jpg"></a></li>
+	<li><a href=""><img src="2F.jpg"></a></li>
+	<li><a href=""><img src="2F.jpg"></a></li>
+	<li><a href=""><img src="2F.jpg"></a></li>
+	<li><a href=""><img src="2F.jpg"></a></li>
+</ul>
+</div>
+
+<div id="item3" class="item">
+ <h2>3F 美妆</h2>
+<ul>
+	<li><a href=""><img src="3F.jpg"></a></li>
+	<li><a href=""><img src="3F.jpg"></a></li>
+	<li><a href=""><img src="3F.jpg"></a></li>
+	<li><a href=""><img src="3F.jpg"></a></li>
+	<li><a href=""><img src="3F.jpg"></a></li>
+	<li><a href=""><img src="3F.jpg"></a></li>
+	<li><a href=""><img src="3F.jpg"></a></li>
+	<li><a href=""><img src="3F.jpg"></a></li>
+	<li><a href=""><img src="3F.jpg"></a></li>
+</ul>
+</div>
+
+<div id="item4" class="item">
+ <h2>4F 数码</h2>
+<ul>
+	<li><a href=""><img src="4F.png"></a></li>
+	<li><a href=""><img src="4F.png"></a></li>
+	<li><a href=""><img src="4F.png"></a></li>
+	<li><a href=""><img src="4F.png"></a></li>
+	<li><a href=""><img src="4F.png"></a></li>
+	<li><a href=""><img src="4F.png"></a></li>
+	<li><a href=""><img src="4F.png"></a></li>
+	<li><a href=""><img src="4F.png"></a></li>
+	<li><a href=""><img src="4F.png"></a></li>
+</ul>
+</div>
+
+<div id="item5" class="item">
+ <h2>5F 母婴</h2>
+<ul>
+	<li><a href=""><img src="5F.jpg"></a></li>
+	<li><a href=""><img src="5F.jpg"></a></li>
+	<li><a href=""><img src="5F.jpg"></a></li>
+	<li><a href=""><img src="5F.jpg"></a></li>
+	<li><a href=""><img src="5F.jpg"></a></li>
+	<li><a href=""><img src="5F.jpg"></a></li>
+	<li><a href=""><img src="5F.jpg"></a></li>
+	<li><a href=""><img src="5F.jpg"></a></li>
+	<li><a href=""><img src="5F.jpg"></a></li>
+</ul>
+</div>
+</div>
+</body>
+</html>
