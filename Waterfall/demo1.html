@@ -1,0 +1,95 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="UTF-8"> 
+<title>新闻展示页面</title> 
+<style type="text/css"></style> 
+<link rel="stylesheet" type="text/css" href="./css/reset.css"> 
+<style type="text/css"> 
+*{font-family:微软雅黑;} 
+body{min-width:245px;} 
+.main{margin-left:21px;} 
+.title{font-size:16px;line-height:50px;height:50px;color:#333333;font-weight:bolder;border-bottom:1px solid #d8d8d8;} 
+.time {font-size:12px;color:#999999;} 
+.newsList {border-left:2px dashed #b4d2fa;} 
+.newsList > li {margin-left: 15px;border-bottom:1px solid #d8d8d8;margin-top:20px;width:190px;padding-bottom:20px;} 
+.newsList article{cursor:pointer;color:#333333;margin-top:8px;} 
+.icon{border:2px solid #cde3ff;border-radius:20px;width:10px;height:10px;background:#69a6f4;left: -23px;top:2px;} 
+article.red{color:#ff3d38;} 
+::-webkit-scrollbar,.protocol-content::-webkit-scrollbar { width: 8px;/*滚动条粗细*/ height: 12px } 
+::-webkit-scrollbar-track,.protocol-content::-webkit-scrollbar-track { background: none; /*滑道颜色*/ border-radius: 5px; /*滑道的圆滑度*/ } 
+::-webkit-scrollbar-thumb,.protocol-content::-webkit-scrollbar-thumb { background: #d8d8d8; /*滑块颜色*/ border-radius: 5px /*滑块圆滑度*/ } 
+::-webkit-scrollbar-thumb:hover,.protocol-content::-webkit-scrollbar-thumb:hover { background: #C5C5C5; /*滑块上浮*/} 
+</style> 
+</head> 
+<body> 
+<div class="main"> 
+<article class="title">新闻直播</article> 
+<ul class="newsList"> 
+<li class="pr"> 
+<time class="time dib pr"><span class="dib icon pa"></span>11:23:34</time> 
+<article>发撒违法和嘎达嘎达嘎达规划俺是个发搜爱国花噶是的好的again发的爱国突然很投入和，啊噶速度高阿萨刚俺是个俺是个俺是个俺是个啊</article> 
+</li> 
+<li class="pr"> 
+<time class="time dib pr"><span class="dib icon pa"></span>11:23:34</time> 
+<article class="red">发撒违法和嘎达嘎达嘎达规划俺是个发搜爱国花噶是的好的again发的爱国突然很投入和，啊噶速度高阿萨刚俺是个俺是个俺是个俺是个啊</article> 
+</li> 
+<li class="pr"> 
+<time class="time dib pr"><span class="dib icon pa"></span>11:23:34</time> 
+<article>发撒违法和嘎达嘎达嘎达规划俺是个发搜爱国花噶是的好的again发的爱国突然很投入和，啊噶速度高阿萨刚俺是个俺是个俺是个俺是个啊</article> 
+</li> 
+<li class="pr"> 
+<time class="time dib pr"><span class="dib icon pa"></span>11:23:34</time> 
+<article>发撒违法和嘎达嘎达嘎达规划俺是个发搜爱国花噶是的好的again发的爱国突然很投入和，啊噶速度高阿萨刚俺是个俺是个俺是个俺是个啊</article> 
+</li> 
+<li class="pr"> 
+<time class="time dib pr"><span class="dib icon pa"></span>11:23:34</time> 
+<article>发撒违法和嘎达嘎达嘎达规划俺是个发搜爱国花噶是的好的again发的爱国突然很投入和，啊噶速度高阿萨刚俺是个俺是个俺是个俺是个啊</article> 
+</li> 
+<li class="pr"> 
+<time class="time dib pr"><span class="dib icon pa"></span>11:23:34</time> 
+<article>发撒违法和嘎达嘎达嘎达规划俺是个发搜爱国花噶是的好的again发的爱国突然很投入和，啊噶速度高阿萨刚俺是个俺是个俺是个俺是个啊</article> 
+</li> 
+<li class="pr"> 
+<time class="time dib pr"><span class="dib icon pa"></span>11:23:34</time> 
+<article>发撒违法和嘎达嘎达嘎达规划俺是个发搜爱国花噶是的好的again发的爱国突然很投入和，啊噶速度高阿萨刚俺是个俺是个俺是个俺是个啊</article> 
+</li> 
+</ul> 
+</div> 
+</body> 
+<!-- <script type="text/javascript" src="http://10.0.16.244:81/thsft/js/IStrategy/lib/jquery/1.10.2/jquery.js"></script> --> 
+<!-- <script type="text/javascript" src="http://10.0.16.244:81/thsft/js/lib/kit.js?v=20170105"></script> 
+<script type="text/javascript" src="http://10.0.16.244:81/thsft/js/IStrategy/lib/underscore/1.5.2/underscore.js"></script> --> 
+<script type="text/temp" id="temp"> 
+<li class="pr"> 
+<time class="time dib pr"><span class="dib icon pa"></span>11:23:34</time> 
+<article>发撒违法和嘎达嘎达嘎达规划俺是个发搜爱国花噶是的好的again发的爱国突然很投入和，啊噶速度高阿萨刚俺是个俺是个俺是个俺是个啊</article> 
+</li> 
+</script> 
+<script type="text/javascript"> 
+var temp = document.querySelector("#temp").innerHTML; 
+// 页面地址 /thsft/iFindService/NewsService/newslive/index 
+window.onscroll = function() { 
+var li = document.querySelectorAll(".newsList li")[document.querySelectorAll(".newsList li").length - 1]; 
+// 获取滚动高度 
+var srcollTop = document.body.scrollTop || document.documentElement.scrollTop; 
+
+// 最下面的一条新闻到页面顶部的距离 
+var lastNews = Math.floor(li.offsetHeight/2) + li.offsetTop; 
+// 获取页面高度 
+var docHeight = document.documentElement.clientHeight || document.body.clientHeight; 
+
+// 判断是否需要加载 
+var state = (srcollTop + docHeight > lastNews) ? true : false; 
+console.log(state); 
+if (state) { 
+// 给页面动态添加上新闻 
+var cont = document.querySelector(".newsList").innerHTML; 
+cont += document.querySelector("#temp").innerHTML; 
+document.querySelector(".newsList").innerHTML = cont; 
+// $(".newsList").append(temp); 
+} 
+
+} 
+</script> 
+</html>
