@@ -24,6 +24,7 @@
     .box img{
         width:162px;
         height:auto;
+
     }
 </style>
 </head>
@@ -175,7 +176,7 @@ window.onload = function() {
             var lastBoxH = nowObject.offsetTop + Math.floor(nowObject.offsetHeight/2);
             //console.log(nowHeight);
             var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-            var height = document.body.clientHeight || document.documentElement.clientHeight;
+            var height = document.documentElement.clientHeight || document.body.clientHeight ;
             //document.documentElement.clientHeight || document.documentElement.offsetHeight;
             // debugger;
             var state = (lastBoxH < scrollTop + height) ? true:false;
